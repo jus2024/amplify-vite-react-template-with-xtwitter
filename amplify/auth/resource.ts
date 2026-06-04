@@ -11,7 +11,7 @@ export const auth = defineAuth({
           clientSecret: secret("X_CLIENT_SECRET"),
           // ★ 手順 2 で取得した API Gateway URL を設定
           issuerUrl: "https://obwlvwk7cd.execute-api.us-west-2.amazonaws.com/prod",
-          scopes: ["openid", "tweet.read", "users.read", "offline.access"],
+          scopes: ["openid", "tweet.read", "users.read", "users.email", "offline.access"],
           attributeMapping: {
             email: "email",
             preferredUsername: "preferred_username",
@@ -22,11 +22,11 @@ export const auth = defineAuth({
       callbackUrls: [
         "http://localhost:3000/",
         // ★ 手順 2 で取得した Amplify URL を設定
-        "https://main.d2fc7iwbfufchb.amplifyapp.com",
+        "https://main.d2fc7iwbfufchb.amplifyapp.com/",
       ],
       logoutUrls: [
         "http://localhost:3000/",
-        "https://main.d2fc7iwbfufchb.amplifyapp.com",
+        "https://main.d2fc7iwbfufchb.amplifyapp.com/",
       ],
     },
   },
